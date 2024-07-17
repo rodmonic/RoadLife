@@ -1,6 +1,6 @@
 import streamlit as st
 from os import walk
-import logging
+# import logging
 import pandas as pd
 import geopandas as gpd
 from datetime import date
@@ -35,8 +35,8 @@ roads = [road.split(".")[0] for road in roads]
 postcodes_df = pd.read_csv(postcode_filepath)
 
 # implement logging
-logging.basicConfig(level=logging.DEBUG, filename=log_filename, filemode='a', format='%(asctime)s | %(levelname)s | %(message)s')
-logger = logging.getLogger(__name__)
+# logging.basicConfig(level=logging.DEBUG, filename=log_filename, filemode='a', format='%(asctime)s | %(levelname)s | %(message)s')
+# logger = logging.getLogger(__name__)
 
 # get UK KML outline
 gdf_uk = get_kml('./data/boundaries/uk.kml')
