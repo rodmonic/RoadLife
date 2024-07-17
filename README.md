@@ -1,2 +1,2 @@
 # RoadLife
-Ever wondered how far you have lived from a road?
+How far have you lived from a road?

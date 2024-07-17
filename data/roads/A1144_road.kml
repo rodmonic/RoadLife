@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+<ExtendedData>
+
+<displayName>license</displayName>
+<value>CC-BY-SA 3.0</value>
+
+</ExtendedData>
+<StyleMap id="m_ylw-pushpin">
+<Pair>
+<key>normal</key>
+<styleUrl>#s_ylw-pushpin</styleUrl>
+</Pair>
+<Pair>
+<key>highlight</key>
+<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+</Pair>
+</StyleMap>
+<Style id="style_1">
+<LineStyle>
+<color>#FF0000FF</color>
+<width>3</width>
+</LineStyle>
+</Style>
+<Folder>
+<name>Main container</name>
+<Placemark>
+<name>A1144</name>
+<styleUrl>#style_1</styleUrl>
+<LineString>
+<tessellate>1</tessellate>
+<coordinates>
+1.7277180567616754,52.48272930194532,0 
+1.7300140276012195,52.4826704971113,0 
+1.7313014878850796,52.48274236967554,0 
+1.7338334931100108,52.483010257289585,0 
+1.734659613458802,52.48299718963893,0 
+1.7357324970286856,52.482925317491016,0 
+1.7369341266269676,52.4825463533147,0 
+1.740571201928866,52.481605462624934,0 
+1.7414295087847727,52.48143557743903,0 
+1.743467987567551,52.48169040497184,0 
+1.7447769055228215,52.481932163061614,0 
+1.7468261131412732,52.48270316647323,0 
+1.7471265205408595,52.48275543740189,0 
+1.749808729465568,52.48276850512435,0 
+1.750441730771793,52.48261169219869,0 
+1.7512034781064165,52.48210204632993,0 
+1.7514716989988872,52.48182761918584,0 
+</coordinates>
+</LineString>
+</Placemark>
+</Folder>
+</Document>
+</kml>
+
+
+
+

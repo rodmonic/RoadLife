@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Mancunian Way.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Folder>
+		<name>Mancunian Way</name>
+		<open>1</open>
+		<Placemark>
+			<name>A57(M)</name>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-2.259480360083171,53.47302319742563,0 -2.25836448171999,53.47241253221873,0 -2.257141508500935,53.4717669398241,0 -2.256714185978538,53.4715780281977,0 -2.256267269459216,53.47141164072585,0 -2.255667784626571,53.47125150912687,0 -2.255099319214817,53.47112187694914,0 -2.254511309858331,53.47104546956715,0 -2.253725650122742,53.47096689440011,0 -2.252369095737958,53.47086071872311,0 -2.250384702370731,53.47071886872254,0 -2.24789320778193,53.47053477641918,0 -2.24727549629407,53.47047437562765,0 -2.246243445890802,53.47034447079248,0 -2.245559137194184,53.47027806288352,0 -2.244924639205954,53.47025366437072,0 -2.244251313014132,53.47025916925506,0 -2.243564566166723,53.47029479863045,0 -2.242895593856076,53.47038349603401,0 -2.242206584778494,53.47051359366894,0 -2.24154232531408,53.47067035434495,0 -2.240497297190134,53.47097948353749,0 -2.239197922139727,53.47139526540936,0 -2.238724958047937,53.47151963992175,0 -2.238214478626862,53.4716210101851,0 -2.23754527281159,53.47172100728086,0 -2.23632868879725,53.47186915349218,0 -2.235519009658664,53.47199814560358,0 -2.234832462007864,53.47214979175053,0 -2.234391519983591,53.47225934105718,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>A635(M)</name>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-2.234397869727781,53.47225939637728,0 -2.233994591181904,53.47238816166956,0 -2.233436348170407,53.47262138889466,0 -2.232593995571254,53.47304488175935,0 -2.231810812484421,53.4733857350478,0 -2.230983620630307,53.47370731857483,0 -2.230446130365051,53.47386892533686,0 -2.229986723017348,53.47395560449306,0 -2.22947120825389,53.4740002070743,0 -2.228948186673495,53.47400489038594,0 -2.228371437860427,53.47395823245925,0 -2.227504967966942,53.4738145199262,0 -2.226619542257351,53.47366685372423,0 -2.225986781717256,53.47357433093023,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
+
+
+
+

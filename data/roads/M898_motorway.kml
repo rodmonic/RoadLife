@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>M898 motorway.kml</name>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>M898 motorway</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+				-4.484817269652233,55.90062707583196,0 -4.480327215624139,55.90211055515743,0 -4.479611850096924,55.90237978795936,0 -4.478578814326408,55.90281650198987,0 -4.47756467080155,55.90333004922523,0 -4.476641182030177,55.90388895649167,0 -4.475735684770673,55.90454852457954,0 -4.474966244163195,55.90521777319174,0 -4.474257917217407,55.9059543016846,0 -4.47376119912501,55.90663027667331,0 -4.473371579371279,55.90736070717359,0 -4.473078066008514,55.90807507605535,0 -4.472892228824583,55.90876789785546,0 -4.47274815345287,55.90952009522494,0 -4.472612984798101,55.91032136162529,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>
+
+
+
+
