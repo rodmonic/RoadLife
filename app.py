@@ -104,7 +104,7 @@ def get_map(gdf_locations: gpd.GeoDataFrame, gdf_road: gpd.GeoDataFrame) -> plt.
     # Create a plot
     fig, ax = plt.subplots(figsize=(4, 4))
 
-    plt.xlim([-8.2, 2])
+    plt.xlim([-8.3, 2])
     plt.ylim([50, 61])
 
     # Plot Uk boundary
@@ -121,7 +121,7 @@ def get_map(gdf_locations: gpd.GeoDataFrame, gdf_road: gpd.GeoDataFrame) -> plt.
 
     return fig
 
-def get_chart(df: pd.DataFrame) -> plt.figure:
+def get_chart(df: pd.DataFrame, selected_road: str) -> plt.figure:
 
     # Plot the DataFrame
     fig, ax = plt.subplots(figsize=(6, 3))
@@ -130,7 +130,7 @@ def get_chart(df: pd.DataFrame) -> plt.figure:
 
      # Add titles and labels
     plt.xlabel('Date', fontsize=6)
-    plt.ylabel('Kms', fontsize=6)
+    plt.ylabel(f'kms from {selected_road}', fontsize=6)
 
     # Customize the x-axis and y-axis
     plt.xticks(rotation=45, fontsize=6)
@@ -187,7 +187,8 @@ def prepare_gdf(df: pd.DataFrame, selected_road: str)-> gpd.GeoDataFrame:
 
     return gdf_road, gdf_locations
 
-def process_query_tab():
+
+def road_life():
 
     st.set_page_config(page_title='Road Life Checker', page_icon=':motorway:', layout='wide')
 
@@ -198,19 +199,43 @@ def process_query_tab():
         "from": st.column_config.DateColumn(format="DD/MM/YYYY", width='small', required=True)
     }
 
+
+    st.sidebar.write("Please select a british road to compare against")
     selected_road = st.sidebar.selectbox(
-        "what road are you interested in checking?",
-        roads
-    )
+        options=roads, 
+        label=':car:', 
+        label_visibility="collapsed"
+        )
 
-    st.sidebar.markdown("Where have you lived")
+    selected_road_human_readable = selected_road.replace("_", " ")
 
-    df = st.sidebar.data_editor(df, column_config = config, num_rows="dynamic", hide_index=True, use_container_width=True )
+    st.sidebar.markdown("Please fill out the table below with postcodes, capitalised including spaces, and the date you started living at that postcode")
 
+    df = st.sidebar.data_editor(
+        data =df, 
+        column_config = config, 
+        num_rows="dynamic", 
+        hide_index=True, 
+        use_container_width=True
+        )
+
+    st.sidebar.write("Then click 'Submit'")
     submitted = st.sidebar.button('Submit')
 
     if submitted:
         # do some preparation to the dataframes
+        
+        if not df['from'].is_unique:
+            st.info("please check your dates are unique.")
+            return
+        
+        if not df['from'].is_monotonic_increasing:
+            st.info("Please check your dates are in chronalogical order.")
+            return
+        
+        if df.isnull().values.any():
+            st.info("Please delete any empty rows and make sure all columns are filled out.")
+            return
         
         df = prepare_df(df)
         
@@ -220,35 +245,33 @@ def process_query_tab():
         # get the data 
         average_km, min_km, max_km = get_stats(gdf_locations, 1000)
         map_chart = get_map(gdf_locations=gdf_locations, gdf_road=gdf_road)
-        line_chart = get_chart(line_chart_df)
+        line_chart = get_chart(line_chart_df, selected_road_human_readable)
     
 
-        st.markdown(f"""## Distance lived from {selected_road}""")
+        st.markdown(f"""## Distance lived from {selected_road_human_readable}""")
 
         st.write('\n' * 3) # Adjust the number of newlines for more or less space
 
-        # display it
-        row=st.columns([0.3, 0.7])
+        # first column
+        chart_row=st.columns([0.3, 0.7])
+        chart_row[0].pyplot(map_chart, use_container_width=True)
 
-        row[0].pyplot(map_chart, use_container_width=True)
-        
-        row[1].markdown(
-            f"""
-            | Statistic          |           Distance     |
-            | :----------------- |  --------------------: |
-            | Average distance:  |  {average_km: .2f} km  |
-            | Max distance:      |      {max_km: .2f} km  |
-            | Min distance       |      {min_km: .2f} km  |
-            """
-        , unsafe_allow_html=True)
+        #second column
+        chart_row[1].write('\n')
+        metric_row = chart_row[1].columns([1,1,1])
 
-        row[1].pyplot(line_chart, use_container_width=True)
+        metric_row[0].metric(f"Average distance lived from {selected_road_human_readable}", f"{average_km: .2f} km")
+        metric_row[1].metric(f"Maximum distance lived from {selected_road_human_readable}", f"{max_km: .2f} km")
+        metric_row[2].metric(f"Minimum distance lived from {selected_road_human_readable}", f"{min_km: .2f} km")
+
+        chart_row[1].write('\n' * 10)
+        chart_row[1].pyplot(line_chart, use_container_width=True)
 
         
         
 def main():
 
-    process_query_tab()
+    road_life()
 
 
 if __name__ == "__main__":
