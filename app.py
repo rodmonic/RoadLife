@@ -33,7 +33,7 @@ roads = [road.split(".")[0] for road in roads]
 postcodes_df = pd.read_csv(postcode_filepath)
 
 # get UK KML outline
-gdf_uk = get_kml('./static/UK.kml')
+gdf_uk = get_kml('./static/boundaries/UK.kml')
 
 
 def prepare_df(df: pd.DataFrame) -> pd.DataFrame:
