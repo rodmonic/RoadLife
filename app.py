@@ -250,10 +250,7 @@ def process_query_tab():
 
 def main():
 
-    with st.echo():
-        st.markdown("[![Click me](./app/static/cat.jpg)](https://streamlit.io)")
-
-    # process_query_tab()
+    process_query_tab()
 
 
 if __name__ == "__main__":
