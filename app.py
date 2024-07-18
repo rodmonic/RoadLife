@@ -1,6 +1,5 @@
 import streamlit as st
 from os import walk
-# import logging
 import pandas as pd
 import geopandas as gpd
 from datetime import date
@@ -22,7 +21,6 @@ def get_kml(file_path: str) -> gpd.GeoDataFrame:
 
 
 # Locations
-#log_filename = './logging/app.log'
 road_path = "./static/"
 postcode_filepath = './static/postcodes.csv'
 
@@ -33,10 +31,6 @@ postcode_regex = r'^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$'
 roads = next(walk(road_path), (None, None, []))[2]
 roads = [road.split(".")[0] for road in roads]
 postcodes_df = pd.read_csv(postcode_filepath)
-
-# implement logging
-# logging.basicConfig(level=logging.DEBUG, filename=log_filename, filemode='a', format='%(asctime)s | %(levelname)s | %(message)s')
-# logger = logging.getLogger(__name__)
 
 # get UK KML outline
 gdf_uk = get_kml('./static/UK.kml')
@@ -90,6 +84,7 @@ def min_geodesic_distance_to_lines(point, gdf_road: gpd.GeoDataFrame):
             if dist < min_dist:
                 min_dist = dist
     return min_dist
+
 
 def get_stats(gdf_locations: gpd.GeoDataFrame, factor: int) -> tuple[float, float, float]:
 
@@ -245,9 +240,6 @@ def process_query_tab():
 
         
         
-
-
-
 def main():
 
     process_query_tab()
