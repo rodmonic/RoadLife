@@ -39,7 +39,7 @@ postcodes_df = pd.read_csv(postcode_filepath)
 # logger = logging.getLogger(__name__)
 
 # get UK KML outline
-gdf_uk = get_kml('./static/uk.kml')
+gdf_uk = get_kml('./static/UK.kml')
 
 
 def prepare_df(df: pd.DataFrame) -> pd.DataFrame:
