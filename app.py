@@ -22,17 +22,17 @@ def get_kml(file_path: str) -> gpd.GeoDataFrame:
 
 
 # Locations
-# #log_filename = './logging/app.log'
-# road_path = "./static/"
-# postcode_filepath = '/static/postcodes.csv'
+#log_filename = './logging/app.log'
+road_path = "./static/"
+postcode_filepath = './app/static/postcodes.csv'
 
-# # post code validation regex
-# postcode_regex = r'^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$'
+# post code validation regex
+postcode_regex = r'^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$'
 
-# # list all roads that have been downloaded
-# roads = next(walk(road_path), (None, None, []))[2]
-# roads = [road.split(".")[0] for road in roads]
-# postcodes_df = pd.read_csv(postcode_filepath)
+# list all roads that have been downloaded
+roads = next(walk(road_path), (None, None, []))[2]
+roads = [road.split(".")[0] for road in roads]
+postcodes_df = pd.read_csv(postcode_filepath)
 
 # implement logging
 # logging.basicConfig(level=logging.DEBUG, filename=log_filename, filemode='a', format='%(asctime)s | %(levelname)s | %(message)s')
