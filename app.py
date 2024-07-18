@@ -23,8 +23,8 @@ def get_kml(file_path: str) -> gpd.GeoDataFrame:
 
 # Locations
 #log_filename = './logging/app.log'
-road_path = "./app/static/"
-postcode_filepath = './app/static/postcodes.csv'
+road_path = "./static/"
+postcode_filepath = './static/postcodes.csv'
 
 # post code validation regex
 postcode_regex = r'^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$'
@@ -39,7 +39,7 @@ postcodes_df = pd.read_csv(postcode_filepath)
 # logger = logging.getLogger(__name__)
 
 # get UK KML outline
-gdf_uk = get_kml('./app/static/UK.kml')
+gdf_uk = get_kml('./static/UK.kml')
 
 
 def prepare_df(df: pd.DataFrame) -> pd.DataFrame:
