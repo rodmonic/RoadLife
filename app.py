@@ -22,7 +22,7 @@ def get_kml(file_path: str) -> gpd.GeoDataFrame:
 
 # Locations
 road_path = "./static/roads/"
-postcode_filepath = './static/postcodes/postcodes.csv'
+# postcode_filepath = './static/postcodes/postcodes.csv'
 
 # post code validation regex
 postcode_regex = r'^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$'
