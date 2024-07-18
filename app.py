@@ -180,7 +180,7 @@ def get_line_chart_df(gdf: gpd.GeoDataFrame, factor: int) -> pd.DataFrame:
 def prepare_gdf(df: pd.DataFrame, selected_road: str)-> gpd.GeoDataFrame:
 
     gdf_locations = add_points(df)
-    road_file_path = f'./app/static/{selected_road}.kml'
+    road_file_path = f'./static/{selected_road}.kml'
     gdf_road = get_kml(road_file_path)
     gdf_locations['min_geodesic_distance'] = gdf_locations['geometry'].apply(min_geodesic_distance_to_lines, gdf_road=gdf_road)
     gdf_locations['total_day_distance'] = gdf_locations['min_geodesic_distance']*gdf_locations['days']
