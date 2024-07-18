@@ -21,7 +21,7 @@ def get_kml(file_path: str) -> gpd.GeoDataFrame:
 
 
 # Locations
-road_path = "./static/roads/"
+road_path = "./static/"
 postcode_filepath = './static/postcodes.csv'
 
 # post code validation regex
@@ -29,11 +29,17 @@ postcode_regex = r'^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$'
 
 # list all roads that have been downloaded
 roads = next(walk(road_path), (None, None, []))[2]
-roads = [road.split(".")[0] for road in roads]
+exclude_files = [
+'UK.kml',
+'postcodes.csv'
+]
+roads = [road.split(".")[0] for road in roads if road not in exclude_files]
+roads.sort()
+
 postcodes_df = pd.read_csv(postcode_filepath)
 
 # get UK KML outline
-gdf_uk = get_kml('./static/boundaries/UK.kml')
+gdf_uk = get_kml('./static/UK.kml')
 
 
 def prepare_df(df: pd.DataFrame) -> pd.DataFrame:
@@ -174,7 +180,7 @@ def get_line_chart_df(gdf: gpd.GeoDataFrame, factor: int) -> pd.DataFrame:
 def prepare_gdf(df: pd.DataFrame, selected_road: str)-> gpd.GeoDataFrame:
 
     gdf_locations = add_points(df)
-    road_file_path = f'./app/static/roads/{selected_road}.kml'
+    road_file_path = f'./app/static/{selected_road}.kml'
     gdf_road = get_kml(road_file_path)
     gdf_locations['min_geodesic_distance'] = gdf_locations['geometry'].apply(min_geodesic_distance_to_lines, gdf_road=gdf_road)
     gdf_locations['total_day_distance'] = gdf_locations['min_geodesic_distance']*gdf_locations['days']
