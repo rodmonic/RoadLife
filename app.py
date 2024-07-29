@@ -236,10 +236,14 @@ def road_life():
     st.sidebar.write("Then click 'Submit'")
     submitted = st.sidebar.button("Submit")
 
-    st.write("Please use the sidebar to the left to enter where you've lived and what road you're interested in checking")
+    intro = st.empty()
+
+    intro.write("Please use the sidebar to the left to enter where you've lived and what road you're interested in checking")
 
     if submitted:
         # do some preparation to the dataframes
+
+        intro.empty()
 
         if not df["from"].is_unique:
             st.info("please check your dates are unique.")
