@@ -203,7 +203,7 @@ def road_life():
         page_title="Road Life Checker", page_icon=":motorway:", layout="wide"
     )
 
-    st.write("Please use the sidebar to the left to enter where you've lived and what road you're interested in checking")
+    # st.write("Please use the sidebar to the left to enter where you've lived and what road you're interested in checking")
 
     df = pd.DataFrame(columns=["postcode", "from"])
 
