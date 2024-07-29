@@ -203,8 +203,6 @@ def road_life():
         page_title="Road Life Checker", page_icon=":motorway:", layout="wide"
     )
 
-    # st.write("Please use the sidebar to the left to enter where you've lived and what road you're interested in checking")
-
     df = pd.DataFrame(columns=["postcode", "from"])
 
     config = {
@@ -237,6 +235,8 @@ def road_life():
 
     st.sidebar.write("Then click 'Submit'")
     submitted = st.sidebar.button("Submit")
+
+    st.write("Please use the sidebar to the left to enter where you've lived and what road you're interested in checking")
 
     if submitted:
         # do some preparation to the dataframes
